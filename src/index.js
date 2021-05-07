@@ -9,4 +9,12 @@ async function initServer() {
 
 const Server = initServer();
 
+/**
+ * 
+ *100 -199    informativo 
+ 200 -299 satisfactorios
+ 300 -399 redireciones 
+ 
+ */
+
 

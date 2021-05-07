@@ -28,5 +28,28 @@ apiCtrl.renderAll = async (req, res) => {
     });
 };
 
+apiCtrl.renderUpdate = async (req, res) => {
+    const new_id = req.params.id;
+    const { name, description } = req.body;
+    
+
+    const new_devices = await Device.updateOne({_id: new_id}, {$set: {name, description}});
+    console.log(new_devices);
+ 
+    res.json({
+        new_devices
+    });
+};
+
+apiCtrl.renderDelete = async (req, res) => {
+    const new_id = req.params.id;
+    const device = await Device.deleteOne({_id: new_id});
+    console.log(device)
+    res.json({
+        device
+    });
+};
+
+
 
 module.exports = apiCtrl;
