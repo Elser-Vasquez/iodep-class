@@ -1,20 +1,26 @@
 require('dotenv').config()
 
+const mongoose = require('mongoose');
+const uri = process.env.MONGODB_URI;
+
 const app = require('./app');
 
 async function initServer() {
     await app.listen(app.get('port'));
-    console.log('server on port 3000');
+    console.log('server on port ', app.get('port'));
 }
 
-const Server = initServer();
-
-/**
- * 
- *100 -199    informativo 
- 200 -299 satisfactorios
- 300 -399 redireciones 
- 
- */
-
-
+const Server = mongoose.connect( uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: true,
+    useCreateIndex: true
+})
+    .then( function( db ){
+        console.log('database in connected...');
+        return initServer();
+    })
+         
+    .catch( function( error ){
+        console.log('error connecting to database...', error)
+    }) 
