@@ -4,6 +4,7 @@
     ],
     
     "plugins": [
+        "import-graphql",
         "@babel/transform-runtime"
     ]
         

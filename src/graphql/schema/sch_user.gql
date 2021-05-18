@@ -1,0 +1,47 @@
+type Query {
+    user(email: String!): res_user!
+
+},
+
+type Mutation {
+    createUser(input: new_user!): res_user!
+    updateUser(id: ID! input: update_user!): res_user
+    deleteUser(id: ID! input: delete_user!): res_user
+  
+},
+
+type user {
+    _id: ID
+    email: String
+    password: String
+    name: String
+    surname: String
+    created: String
+}
+
+input new_user {
+    email: String!
+    password: String!
+    name: String!
+    surname: String!
+}
+
+input delete_user {
+    email: String!
+    password: String!
+}
+
+input update_user {
+    name: String
+    surname: String
+}
+
+type res_user {
+    _id: ID
+    email: String
+    password: String
+    name: String
+    surname: String
+    created: String
+}
+

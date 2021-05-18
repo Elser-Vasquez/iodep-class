@@ -16,12 +16,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-server-express": "^2.24.0",
+    "@babel/runtime": "^7.14.0",
+    "apollo-server-express": "^2.21.1",
     "babel-plugin-import-graphql": "^2.8.1",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-ws": "^4.0.0",
-    "graphql-tools": "^7.0.5",
+    "graphql-tools": "^4.0.8",
     "mongoose": "^5.12.7",
     "morgan": "^1.10.0",
     "socket.io": "^4.1.1"

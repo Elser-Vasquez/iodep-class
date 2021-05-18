@@ -10,7 +10,7 @@ async function initServer() {
     console.log('server on port ', app.get('port'));
 }
 
-const Server = mongoose.connect( uri, {
+mongoose.connect( uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: true,
@@ -18,9 +18,10 @@ const Server = mongoose.connect( uri, {
 })
     .then( function( db ){
         console.log('database in connected...');
-        return initServer();
     })
          
     .catch( function( error ){
         console.log('error connecting to database...', error)
     }) 
+
+const Server = initServer();
